@@ -11,5 +11,6 @@ defmodule MiniBlog.Repo.Migrations.CreateUsers do
       add :role, :string
       timestamps()
     end
+    create(unique_index(:users, [:email]))
   end
 end
