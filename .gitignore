@@ -26,3 +26,6 @@ mini_blog-*.tar
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
 /priv/static/
+
+# Ignore .swp files (for vim users)
+*.swp
