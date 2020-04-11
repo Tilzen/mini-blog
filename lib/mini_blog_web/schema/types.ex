@@ -3,5 +3,6 @@ defmodule MiniBlogWeb.Schema.Types do
 
   alias MiniBlogWeb.Schema.Types
 
-  import_types(Types.UserType)
+  import_types Types.UserType
+  import_types Types.SessionType
 end
