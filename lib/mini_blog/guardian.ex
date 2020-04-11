@@ -3,17 +3,14 @@ defmodule MiniBlog.Guardian do
   
   alias MiniBlog.Accounts
 
-  def subject_for_token(user, _claims) do
-    sub = to_string(user.user_id)
-    {:ok, sub}
-  end
-
-  def resource_for_claims(claims) do
-    user = claims["sub"]
-           |> Accounts.get_user!()
-    {:ok, user}
-  end
-
+  def subject_for_token(%Accounts.User{} = user, _claims), do: {:ok, to_string(user.user_id)}
   def subject_for_token(_, _), do: {:error, :reason_for_error}
+
   def resource_for_claims(_claims), do: {:error, :reason_for_error}
+  def resource_for_claims(%{sub: id}) do
+    case Accounts.get_user!(id) do
+      nil -> {:error, :resource_not_found}
+      user -> {:ok, user}
+    end
+  end
 end
