@@ -42,7 +42,10 @@ defmodule MiniBlog.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:comeonin, "~> 5.0"},
-      {:argon2_elixir, "~> 2.3.0"}
+      {:argon2_elixir, "~> 2.3.0"},
+      {:absinthe, "~> 1.4.16"},
+      {:absinthe_plug, "~> 1.4.7"},
+      {:dataloader, "~> 1.0.7"}
     ]
   end
 
