@@ -1,4 +1,4 @@
-defmodule MiniBlog.Plug.Context do
+defmodule MiniBlog.Plugs.Context do
   @behaviour Plug
 
   import Plug.Conn
@@ -15,7 +15,7 @@ defmodule MiniBlog.Plug.Context do
   defp build_context(conn) do
     with ["Bearer " <> token] <- get_req_header(conn, "authorization"),
          {:ok, claims} <- Guardian.decode_and_verify(token),
-         {:ok, user} <- Guardian.resource_for_claims(claims) do
+         {:ok, user} <- Guardian.resource_from_claims(claims) do
       %{current_user: user}
     else
        _ -> %{} 
