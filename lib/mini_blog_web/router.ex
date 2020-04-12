@@ -3,7 +3,7 @@ defmodule MiniBlogWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug MiniBlog.Plug.Context
+    plug MiniBlog.Plugs.Context
   end
 
   scope "/api" do
