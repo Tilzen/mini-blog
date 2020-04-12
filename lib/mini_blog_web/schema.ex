@@ -2,12 +2,14 @@ defmodule MiniBlogWeb.Schema do
   use Absinthe.Schema
 
   alias MiniBlogWeb.Resolvers
+  alias MiniBlog.Schema.Middleware
 
   import_types MiniBlogWeb.Schema.Types
 
   query do
     @desc "Retorna uma lista com todos os usuários."
     field :users, list_of(:user_type) do
+      middleware(Middleware.Authorize, :any)
       resolve(&Resolvers.UserResolver.users/3)
     end
   end
