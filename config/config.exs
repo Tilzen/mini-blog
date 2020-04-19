@@ -23,6 +23,12 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# Configures Guardian
+config :mini_blog, MiniBlog.Guardian,
+      issuer: "mini_blog",
+      secret_key: "AERX4pJ146Y+Koe3D3+365p5nsSHZXk+uXRsN+WYXZ51IYFaxgaJU0xNnUWeHnxv"
+
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
