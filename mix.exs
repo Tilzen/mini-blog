@@ -45,6 +45,7 @@ defmodule MiniBlog.MixProject do
       {:argon2_elixir, "~> 2.3.0"},
       {:absinthe, "~> 1.4.16"},
       {:absinthe_plug, "~> 1.4.7"},
+      {:absinthe_ecto, "~> 0.1.3"},
       {:dataloader, "~> 1.0.7"},
       {:guardian, "~> 2.1.1"}
     ]
